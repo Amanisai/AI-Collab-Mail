@@ -1,13 +1,21 @@
-function saveDraft() {
-    const draftText = document.getElementById('emailDraft').value;
-    // Save draft to Firestore (assumes Firebase initialized in firebase-config.js)
-    firebase.firestore().collection('drafts').doc('currentDraft').set({
-        content: draftText,
-        timestamp: new Date()
-    }).then(() => {
-        alert('Draft saved!');
-    });
+import { app, db } from './firebase-config.js';
+import { doc, setDoc } from "firebase/firestore";
+
+// Check if Firebase is connected
+console.log('Firebase App Initialized:', app);
+
+// Function to test Firestore
+async function testFirestore() {
+    try {
+        await setDoc(doc(db, "testCollection", "testDoc"), {
+            name: "Test Document",
+            createdAt: new Date().toISOString()
+        });
+        console.log("Test document successfully written to Firestore!");
+    } catch (error) {
+        console.error("Error writing document to Firestore:", error);
+    }
 }
 
-// Example function for AI suggestions (dummy)
-document.getElementById('aiSuggestions').innerText = "Consider simplifying the intro paragraph.";
+// Run Firestore test when page loads
+testFirestore();
