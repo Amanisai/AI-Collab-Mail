@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AI Collaboration Mail</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+    <h1>AI Collaboration Mail</h1>
+    <textarea id="emailDraft" placeholder="Type your collaborative draft here..."></textarea>
+    <button onclick="saveDraft()">Save Draft</button>
+    <div>
+        <h3>AI Suggestions</h3>
+        <p id="aiSuggestions">AI suggestions will appear here...</p>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+function saveDraft() {
+    const draftText = document.getElementById('emailDraft').value;
+    // Save draft to Firestore (assumes Firebase initialized in firebase-config.js)
+    firebase.firestore().collection('drafts').doc('currentDraft').set({
+        content: draftText,
+        timestamp: new Date()
+    }).then(() => {
+        alert('Draft saved!');
+    });
+}
+
+// Example function for AI suggestions (dummy)
+document.getElementById('aiSuggestions').innerText = "Consider simplifying the intro paragraph.";
