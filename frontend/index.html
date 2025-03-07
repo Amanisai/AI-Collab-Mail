@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AI Collaboration Mail</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+    <h1>AI Collaboration Mail</h1>
+    <textarea id="emailDraft" placeholder="Type your collaborative draft here..."></textarea>
+    <button onclick="saveDraft()">Save Draft</button>
+    <div>
+        <h3>AI Suggestions</h3>
+        <p id="aiSuggestions">AI suggestions will appear here...</p>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
