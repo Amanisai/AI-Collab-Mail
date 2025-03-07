@@ -141,4 +141,4 @@ LinkedIn: https://www.linkedin.com/in/amanisai-pokala-503b89351
 
 License
 
-This project is for educational and portfolio purposes only. All ideas are open for collaboration and feedback
+This project is for educational and portfolio purposes only. All ideas are open for collaboration and feedback.
